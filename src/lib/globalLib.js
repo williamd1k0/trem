@@ -58,6 +58,13 @@ module.exports = function (globals) {
   );
 
   globals.defineVar(
+    "trenheira",
+    new StandardFn(1, function(value) {
+      return Array(...arguments);
+    })
+  );
+
+  globals.defineVar(
     "real",
     new StandardFn(1, function (value) {
       if (!/^-{0,1}\d+$/.test(value) && !/^\d+\.\d+$/.test(value))
@@ -91,6 +98,10 @@ module.exports = function (globals) {
   );
 
   globals.defineVar("exports", {});
+
+  Boolean.prototype.toString = function() {
+    return this == true ? 'divera' : 'mintira';
+  }
 
   return globals;
 };
